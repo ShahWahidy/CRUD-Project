@@ -9,6 +9,11 @@ function UserPosts () {
     const [modal, setModal] = useState(false);
     const [posts, setPosts] = useState(postData)
 
+    const handleClick = e => {
+        e.preventDefault()
+        let id =  e.dataset.target.id;
+    }
+
     useEffect(() => {
         const fetchPosts = () => {
           axios.get(`https://jsonplaceholder.typicode.com/posts?userId=1`)
@@ -28,7 +33,7 @@ function UserPosts () {
 
     return (
         <div>
-            <Button color="primary" onClick={toggle}>
+            <Button data-id={user.id} color="primary" onClick={toggle}>
                 Get Posts
             </Button>
             <Modal isOpen={modal} fade={false} toggle={toggle}>
