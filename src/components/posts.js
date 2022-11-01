@@ -2,48 +2,48 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from 'axios';
 
-import postData from '../dumyPosts';
 
-function UserPosts () {
-    //console.log('userPosts', postData)
+
+function UserPosts( { userId }) {
     const [modal, setModal] = useState(false);
-    const [posts, setPosts] = useState(postData)
+    const [posts, setPosts] = useState([])
 
-    const handleClick = e => {
+    const toggle = () => setModal(value => !value);
+
+    const toggleModal = (e) => {
         e.preventDefault()
-        let id =  e.dataset.target.id;
-    }
+        toggle();
+        fetchPosts()
 
-    useEffect(() => {
-        const fetchPosts = () => {
-          axios.get(`https://jsonplaceholder.typicode.com/posts?userId=1`)
-          .then(res => {
+    }
+    const fetchPosts = () => {
+        console.log(userId);
+        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+        .then(res => {
             // console.log('after promise', res.data);
             setPosts(res.data);
             console.log('after setPosts', posts);
-          })
-          .catch(err => {
-            console.log(err);
-          })
-        }
-        fetchPosts();
-    }, [])
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+    
 
-    const toggle = () => setModal(!modal);
 
     return (
         <div>
-            <Button data-id={user.id} color="primary" onClick={toggle}>
+            <Button color="primary" onClick={toggleModal}>
                 Get Posts
             </Button>
             <Modal isOpen={modal} fade={false} toggle={toggle}>
                 <ModalHeader toggle={toggle}>Posts</ModalHeader>
                 <ModalBody>
                     {
-                        posts.map((post,  id) => {
+                        posts.map((post, id) => {
                             return (<div>
-                            <h5>{posts[id].title}</h5>
-                            <h6>{posts[id].body}</h6>
+                                <h5>{posts[id].title}</h5>
+                                <h6>{posts[id].body}</h6>
                             </div>
                             )
                         })

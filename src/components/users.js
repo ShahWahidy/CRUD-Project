@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserPosts from "./posts";
-import { Button, Card, CardBody, CardTitle } from "reactstrap";
+import { Card, CardBody, CardTitle } from "reactstrap";
 import { FaPhoneAlt, FaUserAlt, FaEnvelope } from "react-icons/fa";
 
 
@@ -11,7 +11,7 @@ const UserCard = (props) => {
   return (<div className="userCard">
 
     {
-      props.data.map((username, idx) => {
+      props.data.map((user, idx) => {
         return <Card
           style={{
             width: '25rem',
@@ -33,7 +33,7 @@ const UserCard = (props) => {
               <FaPhoneAlt/><span> | </span>{props.data[idx].phone}
             </CardTitle>
             {
-              loadPosts && <UserPosts/>
+              loadPosts && <UserPosts userId={user.id}/>
             }
           </CardBody>
         </Card>

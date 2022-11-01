@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import User from './components/user';
+import SearchBar from './components/search';
 import data from './dumyData';
 
 function App() {
@@ -24,8 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello its working</h1>
-
+    <SearchBar />
     <User users={users} />
     </div>
   );
