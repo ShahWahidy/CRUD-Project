@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 function UserPosts( { userId }) {
+    
     const [modal, setModal] = useState(false);
     const [posts, setPosts] = useState([])
 
@@ -17,7 +18,7 @@ function UserPosts( { userId }) {
 
     }
     const fetchPosts = () => {
-        console.log(userId);
+        //console.log(userId);
         axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         .then(res => {
             // console.log('after promise', res.data);

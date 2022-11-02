@@ -24,13 +24,13 @@ const UserCard = (props) => {
           />
           <CardBody >
             <CardTitle tag="h5" >
-              <FaUserAlt /><span> | </span>{props.data[idx].username}
+              <FaUserAlt /><span> | </span>{user.username}
             </CardTitle>
             <CardTitle tag="h5" >
-              <FaEnvelope/><span> | </span>{props.data[idx].email}
+              <FaEnvelope/><span> | </span>{user.email}
             </CardTitle>
             <CardTitle tag="h5" >
-              <FaPhoneAlt/><span> | </span>{props.data[idx].phone}
+              <FaPhoneAlt/><span> | </span>{user.phone}
             </CardTitle>
             {
               loadPosts && <UserPosts userId={user.id}/>
@@ -49,7 +49,15 @@ export default UserCard;
 
 
 //test codes
-
+// different way of pulling information
+{/* <CardTitle tag="h5" >
+<FaUserAlt /><span> | </span>{props.data[idx].username}
+</CardTitle>
+<CardTitle tag="h5" >
+<FaEnvelope/><span> | </span>{props.data[idx].email}
+</CardTitle>
+<CardTitle tag="h5" >
+<FaPhoneAlt/><span> | </span>{props.data[idx].phone} */}
  // console.log(props)
   //const userArray = [...props.data]
   // const handleClick = e => {
