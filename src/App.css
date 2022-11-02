@@ -4,6 +4,7 @@
     padding: 10px;
     border-radius: 4px;
     box-shadow: 2px 2px 20px 23px rgb(149, 170, 235);
+    margin: 25px 25px 25px 25px
   }
 .userCard {
     display: flex;

@@ -6,7 +6,7 @@ import SearchBar from './components/search';
 import data from './dumyData';
 
 function App() {
-  const [users, setUsers] = useState(data)
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
       const fetchData = () => {
