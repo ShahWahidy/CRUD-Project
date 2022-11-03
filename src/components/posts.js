@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 function UserPosts( { userId }) {
-    
     const [modal, setModal] = useState(false);
     const [posts, setPosts] = useState([])
 
@@ -18,12 +17,11 @@ function UserPosts( { userId }) {
 
     }
     const fetchPosts = () => {
-        //console.log(userId);
+        // console.log(userId);
         axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         .then(res => {
             // console.log('after promise', res.data);
             setPosts(res.data);
-            console.log('after setPosts', posts);
             })
             .catch(err => {
                 console.log(err);
@@ -42,9 +40,11 @@ function UserPosts( { userId }) {
                 <ModalBody>
                     {
                         posts.map((post, id) => {
-                            return (<div>
-                                <h5>{posts[id].title}</h5>
-                                <h6>{posts[id].body}</h6>
+                            return (<div key={id}>
+                                {/* <h5>{posts[id].title}</h5>
+                                <h6>{posts[id].body}</h6> */}
+                                <h5>{post.title}</h5>
+                                <h6>{post.body}</h6>
                             </div>
                             )
                         })

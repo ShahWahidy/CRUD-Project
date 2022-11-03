@@ -1,36 +1,41 @@
 import React, { useState } from 'react'
-import data from '../dumyData';
+import { Button, Form, Input } from 'reactstrap'
 
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 
- const [searchInput, setSearchInput] = useState(data);
+ const [searchInput, setSearchInput] = useState([]);
+
+ let usersArr = []
+
+ props.users.map((user) => usersArr.push(user.name));
 
 
 const handleChange = (e) => {
-  e.preventDefault();
   setSearchInput(e.target.value);
 };
 
-if (searchInput.length > 0) {
-    searchInput.filter((user) => {
-    return user.name.match(searchInput);
-});
+const handleSubmit = e => {
+  e.preventDefault()
+  if(usersArr.includes(searchInput)) {
+    console.log('its working');
+  } else {
+    console.log('its not working');
+  }
+  
 }
 
-return (<div>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="search users..." aria-label="Search" />
-        <button class="btn btn-outline-success" type="submit" >Search</button>
-      </form>
-    </div>
+return (<div className='search-bar-container'>
+  <div className='search-bar'> 
+    <Form onSubmit={handleSubmit}>
+      <Input placeholder='search users...'
+        onChange={handleChange}
+        value={searchInput}
+      />
+      <Button color='primary'>Search</Button>
+    </Form> 
   </div>
-</nav>
-
 </div>)
 
 

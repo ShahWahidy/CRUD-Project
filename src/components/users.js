@@ -11,8 +11,8 @@ const UserCard = (props) => {
   return (<div className="userCard">
 
     {
-      props.data.map((user, idx) => {
-        return <Card
+      props.data.map((user) => {
+        return <Card key={user.id}
           style={{
             width: '25rem',
             padding: '15px'
@@ -24,7 +24,7 @@ const UserCard = (props) => {
           />
           <CardBody >
             <CardTitle tag="h5" >
-              <FaUserAlt /><span> | </span>{user.username}
+              <FaUserAlt /><span> | </span>{user.name}
             </CardTitle>
             <CardTitle tag="h5" >
               <FaEnvelope/><span> | </span>{user.email}

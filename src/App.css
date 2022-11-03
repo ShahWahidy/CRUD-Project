@@ -1,9 +1,11 @@
+body {
+   background-color: powderblue;
+}
 .card-container {
-    background-color: powderblue;
     color: black;
     padding: 10px;
     border-radius: 4px;
-    box-shadow: 2px 2px 20px 23px rgb(149, 170, 235);
+    box-shadow: 2px 2px 12px 13px rgb(149, 170, 235);
     margin: 25px 25px 25px 25px
   }
 .userCard {
@@ -15,5 +17,27 @@
 .card {
     margin-top: 10px;
     border-radius: 10px;
+    border: ridge 3px;
+}
+.search-bar-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    color: black;
+    padding: 10px;
+    height: 100px;
+}
+.search-bar{
+    display: flex;
+    flex-direction: row row-reverse;
+    width: 500px;
+    padding: 10px;
 }
 
+form {
+    display: flex;
+    flex-direction: row row-reverse;
+    width: 500px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px 5px rgb(149, 170, 235);
+}

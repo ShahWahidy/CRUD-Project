@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-    {/* <SearchBar /> */}
+    <SearchBar users={users}/>
     <User users={users} />
     </div>
   );
