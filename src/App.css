@@ -33,7 +33,12 @@ body {
     width: 500px;
     padding: 10px;
 }
-
+.post-container {
+    margin-top: 5px;
+    background-color: powderblue;
+    padding: 10px;
+    box-shadow: 2px 2px 5px 5px rgb(149, 170, 235);
+}
 form {
     display: flex;
     flex-direction: row row-reverse;

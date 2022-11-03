@@ -31,7 +31,7 @@ function UserPosts( { userId }) {
 
 
     return (
-        <div>
+        <div >
             <Button color="primary" onClick={toggleModal}>
                 Get Posts
             </Button>
@@ -40,10 +40,10 @@ function UserPosts( { userId }) {
                 <ModalBody>
                     {
                         posts.map((post, id) => {
-                            return (<div key={id}>
+                            return (<div  className='post-container'key={id}>
                                 {/* <h5>{posts[id].title}</h5>
                                 <h6>{posts[id].body}</h6> */}
-                                <h5>{post.title}</h5>
+                                <h5><u>{post.title}</u></h5>
                                 <h6>{post.body}</h6>
                             </div>
                             )
