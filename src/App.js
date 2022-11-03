@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import User from './components/user';
 import SearchBar from './components/search';
-import data from './dumyData';
 
 function App() {
   const [users, setUsers] = useState([])
+  const [foundUsers, setFoundUsers] = useState([])
 
   useEffect(() => {
       const fetchData = () => {
@@ -22,11 +22,11 @@ function App() {
       }
       fetchData();
   }, [])
-
+  console.log(foundUsers);
   return (
     <div className="App">
-    <SearchBar users={users}/>
-    <User users={users} />
+    <SearchBar users={users} setFoundUsers={setFoundUsers}/>
+    <User users={foundUsers.length ? foundUsers : users} />
     </div>
   );
 }

@@ -1,39 +1,33 @@
-import React, { useState } from 'react'
-import { Button, Form, Input } from 'reactstrap'
+import React, { useState, useEffect } from 'react'
+import { Form, Input } from 'reactstrap'
+import { FaSistrix } from "react-icons/fa";
 
 
 const SearchBar = (props) => {
 
  const [searchInput, setSearchInput] = useState([]);
 
- let usersArr = []
 
- props.users.map((user) => usersArr.push(user.name));
+useEffect(() => {
+  props.setFoundUsers(props.users.filter(u => u.name.includes(searchInput)))
 
+}, [searchInput])
 
 const handleChange = (e) => {
   setSearchInput(e.target.value);
+  console.log(props.users);
 };
 
-const handleSubmit = e => {
-  e.preventDefault()
-  if(usersArr.includes(searchInput)) {
-    console.log('its working');
-  } else {
-    console.log('its not working');
-  }
-  
-}
 
 
 return (<div className='search-bar-container'>
   <div className='search-bar'> 
-    <Form onSubmit={handleSubmit}>
+    <Form >
       <Input placeholder='search users...'
         onChange={handleChange}
         value={searchInput}
       />
-      <Button color='primary'>Search</Button>
+      <FaSistrix size={40}/>
     </Form> 
   </div>
 </div>)
